@@ -9,10 +9,21 @@ SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FORCE=0
 [[ "${1:-}" == "-f" ]] && FORCE=1
 
+IGNORE_FILE="$SRC_DIR/.install-ignore"
+ignored() {
+    local name="$1"
+    [[ -f "$IGNORE_FILE" ]] || return 1
+    while IFS= read -r line; do
+        [[ -z "$line" || "$line" == \#* ]] && continue
+        [[ "$name" == "$line" ]] && return 0
+    done < "$IGNORE_FILE"
+    return 1
+}
+
 for entry in "$SRC_DIR"/* "$SRC_DIR"/.[!.]*; do
     [[ -e "$entry" ]] || continue
     name="$(basename "$entry")"
-    [[ "$name" == "install.sh" ]] && continue
+    ignored "$name" && continue
 
     target="$HOME/$name"
 
