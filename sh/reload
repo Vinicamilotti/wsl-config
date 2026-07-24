@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+# Runs install.sh, then reloads the shell config (same as the `zr` alias).
+set -euo pipefail
+
+SRC_DIR="$(cd "$(dirname "${(%):-%N}")/.." && pwd)"
+
+"$SRC_DIR/install.sh"
+
+source "$HOME/zshConfigs/loadAll.sh"

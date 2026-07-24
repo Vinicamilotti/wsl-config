@@ -1,0 +1,16 @@
+{
+  "pacman": [
+    "zoxide",
+    "bat",
+    "htop",
+    "eza"
+  ],
+  "custom": {
+    "powerlevel10k": {
+      "instructions": [
+        "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k"
+      ],
+      "installed": false
+    }
+  }
+}

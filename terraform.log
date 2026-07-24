@@ -1,0 +1,3 @@
+[2026-07-24T18:34:00-03:00] custom "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh": "eval '$(zoxide init zsh)'": exit status 127
+[2026-07-24T18:34:17-03:00] custom "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh": "eval '$(zoxide init zsh)'": exit status 127
+[2026-07-24T18:38:49-03:00] custom "zoxide": "eval '$(zoxide init zsh)'": exit status 127
