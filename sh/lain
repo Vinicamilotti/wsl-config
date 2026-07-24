@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ -z "${LAIN_PASSWORD:-}" ]]; then
+  echo "Error: LAIN_PASSWORD environment variable is not set" >&2
+  exit 1
+fi
+
+if ! command -v sshpass &>/dev/null; then
+  echo "Error: sshpass is not installed" >&2
+  exit 1
+fi
+
+SSHPASS="$LAIN_PASSWORD" sshpass -e ssh space-cowboy@lain
